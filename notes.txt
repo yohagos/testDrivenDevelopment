@@ -1,0 +1,44 @@
+TDD - Test Driven Development
+
+    Quote from "Book: The Art of Agile Development":
+
+        "TDD helps produce well-designed, well-tested and
+        well-factored code in small, verifiable steps"
+
+#####
+
+So TDD is basically unit testing, right?
+
+    + drive the design
+    + tiny steps & run tests (very) frequently
+    + robust test suite
+
+#####
+
+Why use TDD?
+
+    - Robust test suite
+    - Fear to break code is minimized
+    - Less debugging -> through frequently running tests
+    - Living documentation for others -> expected behavior of code can be extracted from the test suite
+    - Faster code reviews -> strong test suite results in fewer communication channels
+    - Faster delivery of value -> equals in more efficiency and faster delivering of production code
+
+    (theoretical discussion to TDD)
+    - TDD has a learning curve. It slows you down!
+        -> True. So does learning Git or IDE. It also brings a lot of tools
+    - TDD is time-consuming - you must write much more code
+        -> and the time spent debugging and hot-fixing regressions?
+           Only the first month and brings a lot more benefits in the long run
+    - Tests are a big cost! And they break by each refactoring and behavioral changes
+        -> Criticism of tests in general and not TDD
+        -> Minimize overhead with best practices
+    - False sense of security, difficult to apply in some places
+        -> Those are valid concerns (last module / last branch in this project)
+
+    Two core practices:
+        1. Production code best practices
+        2. Test code best practices
+
+#####
+
