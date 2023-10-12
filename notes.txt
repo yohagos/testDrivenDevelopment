@@ -42,3 +42,14 @@ Why use TDD?
 
 #####
 
+Red-Green-Refactor Method / lifecycle
+
+    Before we start, we have to think it through!!!!
+
+    Red         -> write a failing test (compilation failure counts)
+    Green       -> make it pass. Write the simplest possible thing
+    Refactor    -> Clean it up!
+
+    => Hereby it is a constant cycle in which for every change,
+        if those are new features or whatever, we should
+        start with Red then Green and finally Refactor
