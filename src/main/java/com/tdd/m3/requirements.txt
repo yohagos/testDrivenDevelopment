@@ -12,3 +12,8 @@ Tests:
 ----------------
     - Char limit reached -> truncate with ...
     - Char limit not reached -> no changes
+
+More tests to check each scenario:
+---------------------
+    - Invalid String (null)
+    - Invalid limit (8 or less)

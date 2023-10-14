@@ -53,3 +53,33 @@ Red-Green-Refactor Method / lifecycle
     => Hereby it is a constant cycle in which for every change,
         if those are new features or whatever, we should
         start with Red then Green and finally Refactor
+
+    ->  There will be the need to run cycles between the steps of Green and Refactor,
+        to make sure all Tests will still pass and to use Zombies to improve all tests
+
+######
+
+After the Requirements are implemented, then ZOMBIES will come 'alive' and stop the progress...
+ZOMBIES is an anagram for:
+
+    - Zero
+    - One
+    - Many
+        ->  Zero - One - Many: the code should be able to handle each and every possible scenario
+    - Boundary behavior
+        ->  The term 'Boundaries' can be for Testers relative fluid and abstract.
+            Minimal application for boundaries would be to check for primitive data types like
+            length of a String or if the int value is between an range like 0...10
+    - Interface definition
+    - Exceptional behavior
+    - Simple scenarios - simple solutions
+
+Template to improve the written tests.
+
+#####
+
+When to Parameterize?
+
+    When we send different inputs into, but the outputs the same, tests can be merged!
+    -> Example: testing password with a blank string, empty string or unacceptable string => login failed
+
