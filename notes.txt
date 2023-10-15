@@ -96,3 +96,24 @@ Testing the Internals or the Interface?
 
     Tests should only test the behavior and the interface, and not the implementation.
     If we have to change the implementation, therefor the tests will break.
+
+#####
+
+TDD Process
+
+    Poor domain understanding (background information) == Poor Design
+    - One Assertion (assertEquals or ..) per Test
+    - No need to test simple getters -> usually do not contain any logic, just simple return ""
+
+######
+
+Automated Test Best Practices
+
+    - One assertion per test
+    - No need to test trivial getters
+    - BUT!!! There are exception to the rule:
+        ->  the getValue() method contains a math operation and needs to be tested
+        ->  getters will be returning different Values, therefore will through the Red-Green-Refactor
+            Lifecycle, simple tests can be added, to check if those operations, depending on their value
+            will return the expecting value. In the Refactor steps (depending on their priority and complexity)
+            those methods can be removed.
