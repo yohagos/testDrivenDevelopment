@@ -83,3 +83,16 @@ When to Parameterize?
     When we send different inputs into, but the outputs the same, tests can be merged!
     -> Example: testing password with a blank string, empty string or unacceptable string => login failed
 
+#####
+
+Triangulation
+
+    A technic to writing two or more Assertions for a more Generic Code.
+    -> combined the length check and extracted to private Method for more readability in StringUtil
+
+#####
+
+Testing the Internals or the Interface?
+
+    Tests should only test the behavior and the interface, and not the implementation.
+    If we have to change the implementation, therefor the tests will break.

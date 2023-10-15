@@ -27,7 +27,7 @@ public class StringUtilTest {
     public void limitReached_StringTruncate() {
         String input = "The economy is about to"; // length 23
         int limit = 11;
-        Assertions.assertEquals("The economy...", StringUtil.truncate(input, limit));
+        Assertions.assertEquals("The economy...", StringUtil.truncateWithEllipsis(input, limit));
     }
 
     /*@Test
@@ -55,7 +55,7 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("inputOutputLimitProvider")
     public void limitNotReached_StringNotChanged(String input, int limit) {
-        Assertions.assertEquals("The economy is about to", StringUtil.truncate(input, limit));
+        Assertions.assertEquals("The economy is about to", StringUtil.truncateWithEllipsis(input, limit));
     }
 
     // @MethodSource will run the method inputOutputLimitProvider and needs a Stream of arguments
@@ -83,13 +83,43 @@ public class StringUtilTest {
     @MethodSource("invalidArgumentsProvider")
     public void invalidInput_isRejected(String input, int limit) {
         Assertions.assertThrows(IllegalArgumentException.class,
-                () -> StringUtil.truncate(input, limit));
+                () -> StringUtil.truncateWithEllipsis(input, limit));
     }
 
     public static Stream<Arguments> invalidArgumentsProvider() {
         return Stream.of(
                 Arguments.of(null, 5),
                 Arguments.of("The economy is about to", -5)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("shortInputLessOrEqualsToEllipsis")
+    void inputShorterOrEqualThanLimit_StringIsNotChanged(String input, int limit) {
+        Assertions.assertEquals(input, StringUtil.truncateWithEllipsis(input, limit));
+    }
+
+    public static Stream<Arguments> shortInputLessOrEqualsToEllipsis() {
+        return Stream.of(
+                Arguments.of("the", 2),
+                Arguments.of("the", 3)
+        );
+    }
+
+    /*
+    * Tests for overloaded Method truncate(...)
+    * Tests passed for different Chars as Ellipsis
+    * */
+    @ParameterizedTest
+    @MethodSource("inputWithArrowsAsEllipsis")
+    void inputWithSpecialEllipsis(String input, int limit, String cutOffChars) {
+        Assertions.assertEquals(input, StringUtil.truncate(input, limit, cutOffChars));
+    }
+
+    public static Stream<Arguments> inputWithArrowsAsEllipsis() {
+        return Stream.of(
+                Arguments.of("The economy is >>>", 15, ">>>"),
+                Arguments.of("The econom###", 10, "###")
         );
     }
 }

@@ -17,3 +17,9 @@ More tests to check each scenario:
 ---------------------
     - Invalid String (null)
     - Invalid limit (8 or less)
+
+More complex tests (combinatorics):
+-------------------
+    What if?
+        - input < ellipsis
+        - input == ellipsis -> original "abc" and limit 3 -> abc... will double the length
