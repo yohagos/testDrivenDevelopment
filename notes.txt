@@ -117,3 +117,30 @@ Automated Test Best Practices
             Lifecycle, simple tests can be added, to check if those operations, depending on their value
             will return the expecting value. In the Refactor steps (depending on their priority and complexity)
             those methods can be removed.
+
+########
+
+Nuances while using TDD
+
+    Legacy Code
+        - If Tests are not implemented, it was not designed for testability
+        - Introduce tests means there is a need to change the code
+        - Change the code with confidence, we need to introduce tests
+        -> Usually the "chicken-and-egg problem" <-> what came first?
+
+        -> No checklist or concrete method how to introduce tests to legacy code
+
+        Book: "Working Effectively with Legacy Code"
+        - Principles and guidelines: (chapters in the book)
+            - I don't understand the code well enough to change it
+            - My Application has no structure
+            - I need to change a Monster Method and I can't write Tests for it
+            - How do I know that I'm not breaking anything?
+            => Answer to the last to point
+                => Characterization tests
+                => Tests which only test the actual behavior of those methods. Guideline:
+                    1) Assume current behavior is correct (unless an error occur or unexpected calculation)
+                    2) Write a Test for the current behavior. Let it fail!
+                    3) Change the test to make it pass. (Now we have a documentation about their behavior through tests)
+                    4) Repeat
+                    5) Change code with confidence

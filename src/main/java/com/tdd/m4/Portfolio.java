@@ -16,6 +16,8 @@ public class Portfolio {
 
     public void add(Position position) {
         String symbol = position.getStock().symbol();
+        if (position.getQuantity() <= 0 || position.getPrice() <= 0)
+            throw new RuntimeException("Quantity and Price cannot be below Zero");
         if (positions.containsKey(symbol)) {
             Position existingPosition = positions.get(symbol);
             int newQuantity = existingPosition.getQuantity() + position.getQuantity();
@@ -33,6 +35,12 @@ public class Portfolio {
         } else {
             positions.put(position.getStock().symbol(), position);
         }
+    }
+
+    public void removePositionCompletely(String symbol) {
+        if (!positions.containsKey(symbol))
+            throw new RuntimeException("Stock does not exist");
+        positions.remove(symbol);
     }
 
     public Position getPosition(String symbol) {
